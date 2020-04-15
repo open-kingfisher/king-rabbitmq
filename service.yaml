@@ -1,0 +1,19 @@
+kind: "Service"
+  apiVersion: "v1"
+  metadata:
+    name: "king-rabbitmq"
+    namespace: "kingfisher"
+  spec:
+    ports:
+      -
+        name: "manage"
+        protocol: "TCP"
+        port: 15672
+        targetPort: 15672
+      -
+        name: "server"
+        protocol: "TCP"
+        port: 5672
+        targetPort: 5672
+    selector:
+      app: "king-rabbitmq"
